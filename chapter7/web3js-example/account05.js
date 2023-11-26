@@ -1,7 +1,7 @@
 async function getWeb3() {
     const { Web3 } = require('web3')
-    var net = require('net')
-    var web3 = new Web3("/home/shkwon/private-chain/geth.ipc", net)
+    const { IpcProvider } = require('web3-providers-ipc');
+    const web3 = new Web3(new IpcProvider('/home/shkwon/private-chain/geth.ipc'));
     return web3
 }
 
