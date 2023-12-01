@@ -1,0 +1,5 @@
+# Quick Node API KEY for Ganache
+L1RPC=http://127.0.0.1:7545
+
+# your wallet private key
+privateKey=0x34e050034435a578eea7ea258557daa18da40d3c2835c96791e7e5641e14cfd3
