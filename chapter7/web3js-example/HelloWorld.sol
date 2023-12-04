@@ -15,7 +15,7 @@ contract HelloWorld {
     /** @dev say hello world from Learn Ethereum.
       * @return greeting the greeting to be returned
       */    
-    function hello() public view returns (string memory)  {
+    function greet() public view returns (string memory)  {
         return greeting;
     }
     
