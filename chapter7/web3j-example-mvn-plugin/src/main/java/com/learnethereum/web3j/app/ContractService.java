@@ -58,12 +58,16 @@ public class ContractService {
      */
     public String deployOrdersContract() throws Exception {
         Web3j web3j = web3Service.getWeb3j();
-        TransactionManager transactionManager = new RawTransactionManager(web3j, getCredentials(), chainId);
-        RemoteCall<Orders> request = Orders.deploy(web3j, transactionManager, DefaultGasProvider.GAS_PRICE,
-                DefaultGasProvider.GAS_LIMIT);
-        Orders orders = request.send();
-        String contractAddress = orders.getContractAddress();
-        return contractAddress;
+        System.out.println("Get transaction manager!!!" + chainId );
+        getCredentials();
+        return "0x0";
+        //TransactionManager transactionManager = new RawTransactionManager(web3j, getCredentials(), chainId);
+        //System.out.println("Before calling RemoteCall!!!");
+        //RemoteCall<Orders> request = Orders.deploy(web3j, transactionManager, DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT);
+        //System.out.println("After calling RemoteCall!!!");
+        //Orders orders = request.send();
+        //String contractAddress = orders.getContractAddress();
+        //return contractAddress;
     }
 
     /**
@@ -158,7 +162,9 @@ public class ContractService {
     private Credentials getCredentials() {
         // load private key into eckey to sign
         String privatekey = privateKey;
+        System.out.println("Get the private key!!! : " + privatekey);
         BigInteger privkey = new BigInteger(privatekey, 16);
+        System.out.println("The privatekey : " + privkey.toString());
         ECKeyPair ecKeyPair = ECKeyPair.create(privkey);
         Credentials credentials = Credentials.create(ecKeyPair);
         return credentials;
