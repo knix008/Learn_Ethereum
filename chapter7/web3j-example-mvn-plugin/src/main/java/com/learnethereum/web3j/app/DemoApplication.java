@@ -46,7 +46,7 @@ public class DemoApplication implements CommandLineRunner {
         System.out.println("Running Web3J Example...");
         runWeb3jClientVersion();
         runBalance();
-        //runDeployContract();
+        runDeployContract();
         //isValidContract();
         //sendOrderTransaction();
         //runCallContract();
