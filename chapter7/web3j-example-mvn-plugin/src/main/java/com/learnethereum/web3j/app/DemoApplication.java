@@ -46,8 +46,8 @@ public class DemoApplication implements CommandLineRunner {
         runBalance();
         contractAddress = runDeployContract();
         isValidContract(contractAddress);
-        //sendOrderTransaction();
-        //runCallContract();
+        sendOrderTransaction(contractAddress);
+        runCallContract();
     }
 
     public String runDeployContract() throws Exception {
@@ -65,7 +65,7 @@ public class DemoApplication implements CommandLineRunner {
         LOG.info("isValidContract: {}", isValidContract);
     }
 
-    public void sendOrderTransaction() throws Exception {
+    public void sendOrderTransaction(String contractAddress) throws Exception {
         LOG.info("Starting send Orders");
         String buyer = "Bob";
         String product = "NFTAsset1";

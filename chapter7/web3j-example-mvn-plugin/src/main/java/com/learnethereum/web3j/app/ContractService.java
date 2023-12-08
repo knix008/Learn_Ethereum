@@ -1,5 +1,6 @@
 package com.learnethereum.web3j.app;
 
+import kotlin.random.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,9 +92,14 @@ public class ContractService {
         String encodedFunction = FunctionEncoder.encode(function);
         TransactionManager transactionManager = new RawTransactionManager(web3j, getCredentials(), chainId);
 
+        System.out.println("Send Order Transaction : " + contractAddress);
+        BigInteger gasLimit = BigInteger.valueOf(6721975);
+        BigInteger gasPrice = new BigInteger("4100000000", 10);
         String transactionHash = transactionManager.sendTransaction(
-                DefaultGasProvider.GAS_PRICE,
-                DefaultGasProvider.GAS_LIMIT,
+                //DefaultGasProvider.GAS_PRICE,
+                //DefaultGasProvider.GAS_LIMIT,
+                gasPrice,
+                gasLimit,
                 contractAddress,
                 encodedFunction,
                 BigInteger.ZERO).getTransactionHash();
@@ -142,14 +148,16 @@ public class ContractService {
      * @throws Exception
      */
     public boolean isValidContract(Web3j web3j, String contractAddress) throws Exception {
-        BigInteger gasLimit = BigInteger.valueOf(6721975);
-        BigInteger gasPrice = new BigInteger("4100000000", 10);
+        //BigInteger gasLimit = BigInteger.valueOf(6721975);
+        //BigInteger gasPrice = new BigInteger("4100000000", 10);
         Orders contract = Orders.load(
                 contractAddress,
                 web3j,
                 getCredentials(),
-                gasLimit,
-                gasPrice);
+        //        gasLimit,
+        //        gasPrice);
+                DefaultGasProvider.GAS_LIMIT,
+                DefaultGasProvider.GAS_LIMIT);
         return contract.isValid();
     }
 
