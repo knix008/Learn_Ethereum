@@ -64,8 +64,7 @@ public class ContractService {
         //RemoteCall<Orders> request = Orders.deploy(web3j, transactionManager, DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT);
         RemoteCall<Orders> request = Orders.deploy(web3j, transactionManager, gasPrice, gasLimit);
         Orders orders = request.send();
-        String contractAddress = orders.getContractAddress();
-        return contractAddress;
+        return orders.getContractAddress();
     }
 
     /**
@@ -143,12 +142,14 @@ public class ContractService {
      * @throws Exception
      */
     public boolean isValidContract(Web3j web3j, String contractAddress) throws Exception {
+        BigInteger gasLimit = BigInteger.valueOf(6721975);
+        BigInteger gasPrice = new BigInteger("4100000000", 10);
         Orders contract = Orders.load(
                 contractAddress,
                 web3j,
                 getCredentials(),
-                DefaultGasProvider.GAS_PRICE,
-                DefaultGasProvider.GAS_LIMIT);
+                gasLimit,
+                gasPrice);
         return contract.isValid();
     }
 

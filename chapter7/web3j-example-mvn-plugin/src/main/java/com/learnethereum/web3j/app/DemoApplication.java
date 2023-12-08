@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
     private static Logger LOG = LoggerFactory.getLogger(DemoApplication.class);
+    private String contractAddress;
 
     @Autowired
     private BalanceService balanceService;
@@ -34,9 +35,6 @@ public class DemoApplication implements CommandLineRunner {
     @Value("${fromAddress}")
     private String fromAddress;
 
-    @Value("${contractAddress}")
-    private String contractAddress;
-
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
@@ -46,20 +44,23 @@ public class DemoApplication implements CommandLineRunner {
         System.out.println("Running Web3J Example...");
         runWeb3jClientVersion();
         runBalance();
-        runDeployContract();
-        //isValidContract();
+        contractAddress = runDeployContract();
+        isValidContract(contractAddress);
         //sendOrderTransaction();
         //runCallContract();
     }
 
-    public void runDeployContract() throws Exception {
+    public String runDeployContract() throws Exception {
         LOG.info("Starting deploy Orders contract");
         String orderContractAddress = contractService.deployOrdersContract();
         LOG.info("Orders contract deployed to : {}", orderContractAddress);
+        return orderContractAddress;
     }
 
-    public void isValidContract() throws Exception {
+    public void isValidContract(String contractAddress) throws Exception {
         Web3j web3j = web3Service.getWeb3j();
+        System.out.println("Calling isValidContract!!!");
+        System.out.println(contractAddress);
         boolean isValidContract = contractService.isValidContract(web3j, contractAddress);
         LOG.info("isValidContract: {}", isValidContract);
     }
