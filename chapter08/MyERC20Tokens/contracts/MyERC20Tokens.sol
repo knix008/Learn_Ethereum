@@ -142,7 +142,7 @@ interface ERC20 {
     );
 }
 
-contract MyERC20Token is ERC20, Whitelist, Pausable {
+contract MyERC20Tokens is ERC20, Whitelist, Pausable {
     TokenSummary public tokenSummary;
     mapping(address => uint256) internal balances;
     mapping(address => mapping(address => uint256)) internal allowed;
@@ -161,15 +161,11 @@ contract MyERC20Token is ERC20, Whitelist, Pausable {
     }
 
     constructor(
-        string memory _name,
-        string memory _symbol,
-        address _initialAccount,
-        uint _initialBalance
     ) {
-        addWhitelist(_initialAccount);
-        balances[_initialAccount] = _initialBalance;
-        _totalSupply = _initialBalance;
-        tokenSummary = TokenSummary(_initialAccount, _name, _symbol);
+        addWhitelist(msg.sender);
+        balances[msg.sender] = 1000;
+        _totalSupply = 1000;
+        tokenSummary = TokenSummary(msg.sender, "My ERC20 Token", "MTK");
     }
 
     modifier verify(
