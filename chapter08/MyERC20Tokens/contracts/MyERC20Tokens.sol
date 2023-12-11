@@ -160,12 +160,25 @@ contract MyERC20Tokens is ERC20, Whitelist, Pausable {
         string symbol;
     }
 
+    /*
     constructor(
     ) {
         addWhitelist(msg.sender);
         balances[msg.sender] = 1000;
         _totalSupply = 1000;
         tokenSummary = TokenSummary(msg.sender, "My ERC20 Token", "MTK");
+    }
+*/
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _initialAccount,
+        uint _initialBalance
+    ) {
+        addWhitelist(_initialAccount);
+        balances[_initialAccount] = _initialBalance;
+        _totalSupply = _initialBalance;
+        tokenSummary = TokenSummary(_initialAccount, _name, _symbol);
     }
 
     modifier verify(
