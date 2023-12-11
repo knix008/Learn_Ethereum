@@ -9,5 +9,4 @@ module.exports = function(deployer, network, accounts) {
   var initial_supply = 1000;
   
   deployer.deploy(MyERC20Tokens, name, symbol, address, initial_supply);
-  //deployer.deploy()
 };

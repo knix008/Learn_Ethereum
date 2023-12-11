@@ -168,7 +168,7 @@ contract MyERC20Tokens is ERC20, Whitelist, Pausable {
         _totalSupply = 1000;
         tokenSummary = TokenSummary(msg.sender, "My ERC20 Token", "MTK");
     }
-*/
+    */
     constructor(
         string memory _name,
         string memory _symbol,
