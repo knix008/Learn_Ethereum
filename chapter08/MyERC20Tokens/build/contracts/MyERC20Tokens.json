@@ -19093,12 +19093,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x5f89C5DfFf2601Fd6794AB064Cae153684Ee1aa2",
-      "transactionHash": "0xcf79b8085eb40b04fa8ae689a5f26ef7e6bd3980021a3b124215b4c1cca2df99"
+      "address": "0xb017E0A950597be656EF5ec812dBa01fA711f9Ed",
+      "transactionHash": "0xdb3a0fcb3fd246a9da59cf5bff4ca2bbe8cea0300f2f7739444d65371b8a6bb5"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-12-12T00:49:41.143Z",
+  "updatedAt": "2023-12-12T07:02:27.335Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

@@ -2056,12 +2056,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xC99d5d462463fC76631eB9D77aC3C5Ba0c4ee95b",
-      "transactionHash": "0x4014b30d84178e53478d179884d6d441b0a2e3091e47282f2866ee725573d556"
+      "address": "0xF651C8bB8Ac8DC0828d79d8ef94a9692BF16a179",
+      "transactionHash": "0x3cfeadebf392efe9dc2b85543ec15f4dd3c9db97dcdeeba3292d31abfe605ad2"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-12-12T00:49:41.159Z",
+  "updatedAt": "2023-12-12T07:02:27.344Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

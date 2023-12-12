@@ -1,4 +1,4 @@
-var MyERC20Tokens = artifacts.require("./MyERC20Tokens.sol");
+var MyERC20Tokens = artifacts.require("./MyERC20Tokens");
 
 module.exports = function(deployer, network, accounts) {
   console.dir(accounts);
