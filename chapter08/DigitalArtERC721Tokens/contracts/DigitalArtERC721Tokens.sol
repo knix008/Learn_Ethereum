@@ -12,11 +12,13 @@ interface ERC721 {
         address indexed to,
         uint256 indexed tokenId
     );
+
     event Approval(
         address indexed owner,
         address indexed approved,
         uint256 indexed tokenId
     );
+
     event ApprovalForAll(
         address indexed owner,
         address indexed operator,
@@ -59,6 +61,7 @@ interface ERC721 {
 contract DigitalArt is ERC721 {
     string private _name;
     string private _symbol;
+
     Art[] public arts;
     uint256 private pendingArtCount;
     mapping(uint256 => address) private _tokenOwner;
@@ -66,7 +69,9 @@ contract DigitalArt is ERC721 {
     mapping(uint256 => address) private _tokenApprovals;
     mapping(address => mapping(address => bool)) private _operatorApprovals;
     mapping(uint256 => ArtTxn[]) private artTxns;
+
     uint256 public index;
+    
     struct Art {
         uint256 id;
         string title;
@@ -79,6 +84,7 @@ contract DigitalArt is ERC721 {
         uint status;
         string image;
     }
+
     struct ArtTxn {
         uint256 id;
         uint256 price;
@@ -87,7 +93,7 @@ contract DigitalArt is ERC721 {
         uint txnDate;
         uint status;
     }
-    //d
+
     event LogArtSold(
         uint _tokenId,
         string _title,
@@ -97,6 +103,7 @@ contract DigitalArt is ERC721 {
         address _current_owner,
         address _buyer
     );
+
     event LogArtTokenCreate(
         uint _tokenId,
         string _title,
@@ -106,6 +113,7 @@ contract DigitalArt is ERC721 {
         address _author,
         address _current_owner
     );
+
     event LogArtResell(uint _tokenId, uint _status, uint256 _price);
 
     constructor(string memory name_, string memory symbol_) {
