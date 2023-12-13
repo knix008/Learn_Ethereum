@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4.0;
+pragma solidity ^0.8.20;
 /**
  *@notice smart contract for Selector and calculate IERC1155 InterfaceId
  * @ Learn Ethereum 2nd Edition
