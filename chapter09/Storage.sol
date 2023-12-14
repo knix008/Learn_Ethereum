@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: No License
-pragma solidity ^0.8.9.0;
+pragma solidity ^0.8.9.0;  // Solidity Analyzer warning fix.
 
 /**
  * @title Storage
@@ -8,7 +8,7 @@ pragma solidity ^0.8.9.0;
  */
 contract Storage {
 
-    uint256 private number;
+    uint256 private number;  // Solidity Analyzer warning fix.
 
     /**
      * @dev Store value in variable
