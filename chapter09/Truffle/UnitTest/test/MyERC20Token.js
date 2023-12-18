@@ -48,7 +48,6 @@ contract('MyERC20Token', ([owner, operator, other, ...accounts]) => {
     assert(initialAccountBalance.eq(tokenTotalSupply))
   })
 
-
   it('should revert transfers between non-whitelisted accounts', async () => {
     let revertedTransfer = false
     try {
@@ -56,7 +55,6 @@ contract('MyERC20Token', ([owner, operator, other, ...accounts]) => {
     } catch (err) {
       revertedTransfer = true
     }
-
     assert(revertedTransfer)
   })
 
@@ -68,7 +66,6 @@ contract('MyERC20Token', ([owner, operator, other, ...accounts]) => {
     } catch (err) {
       revertedTransfer = true
     }
-
     assert(revertedTransfer)
   })
 
@@ -81,6 +78,7 @@ contract('MyERC20Token', ([owner, operator, other, ...accounts]) => {
     const message = await token.messageHandler(NON_WHITELIST_CODE)
     assert.equal(NON_WHITELIST_ERROR, message)
   })
+
   it('should allow only contract owner add account as admin', async () => {
     const isAdmin = await token.isAdmin(recipient, { from: owner })
     assert(!isAdmin)
@@ -104,6 +102,7 @@ contract('MyERC20Token', ([owner, operator, other, ...accounts]) => {
     const operatorIsWhitelisted = await token.isWhitelist(operator)
     assert(operatorIsWhitelisted)
   })
+
   it('should not allow transfer when contract is paused', async () => {
     await token.pause({ from: owner })
     let revertedTransfer = false
@@ -112,7 +111,6 @@ contract('MyERC20Token', ([owner, operator, other, ...accounts]) => {
     } catch (err) {
       revertedTransfer = true
     }
-
     assert(revertedTransfer)
     await token.unpause({ from: owner })
   })
@@ -162,6 +160,7 @@ contract('MyERC20Token', ([owner, operator, other, ...accounts]) => {
     const message = await token.messageHandler(SUCCESS_CODE)
     assert.equal(SUCCESS_MESSAGE, message)
   })
+
   it('should admin burn certain amount tokens', async () => {
     const senderBalanceBefore = await token.balanceOf(sender)
     const tokenTotalSupplyBefore = await token.totalSupply()
@@ -177,6 +176,7 @@ contract('MyERC20Token', ([owner, operator, other, ...accounts]) => {
       new BN(tokenTotalSupplyBefore).sub(new BN(transferValue)).toString()
     )
   })
+
   it('should admin mint certain amount tokens', async () => {
     const senderBalanceBefore = await token.balanceOf(sender)
     const tokenTotalSupplyBefore = await token.totalSupply()
