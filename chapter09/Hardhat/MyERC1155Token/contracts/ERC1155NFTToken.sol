@@ -14,7 +14,7 @@ contract ERC1155NFTToken is ERC1155 {
 
     constructor()
         ERC1155(
-            "https://ipfs.io/ipfs/bafybeifcatfkx7jehcieim4ujuf6rin7jqcqjkqwdvtra3stpndgmznydm/{id}.json"
+            "https://ipfs.io/ipfs/bafybeih2qtuuybp5m567kfeoveeaa5b7cnhcwknyvunzd7nxi4sjw63uwe/{id}.json"
         )
     {
         _mint(msg.sender, MomentOfSilence, 10, "");
