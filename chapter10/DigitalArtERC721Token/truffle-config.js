@@ -94,7 +94,7 @@ module.exports = {
           enabled: false,
           runs: 200
         },
-        evmVersion: "merge"
+        evmVersion: "berlin"
       }
     }
   }
