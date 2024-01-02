@@ -1,0 +1,29 @@
+<html>
+<header>
+    <title>Infura</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // Set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("https://sepolia.infura.io/v3/63b88bff40b44390a1e3f162f2e7c6b1"));
+        }
+    </script>
+</header>
+
+<body>
+    <div>
+        <h2>Latest Block</h2><span id="lastblock"></span>
+    </div>
+    <script>
+        web3.eth.getBlockNumber().then(result => {
+            $("#lastblock").text(result)
+        }).catch(error => { 
+            console.error(error); 
+        });
+    </script>
+</body>
+
+</html>
