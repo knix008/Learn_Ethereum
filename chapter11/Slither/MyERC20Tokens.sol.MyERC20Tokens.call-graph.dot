@@ -1,0 +1,76 @@
+strict digraph {
+subgraph cluster_228_Whitelist {
+label = "Whitelist"
+"228_addWhitelist" [label="addWhitelist"]
+"228_isWhitelist" [label="isWhitelist"]
+"228_removeWhitelisted" [label="removeWhitelisted"]
+"228_addWhitelist" -> "228_onlyAdmin"
+"228_removeWhitelisted" -> "228_onlyAdmin"
+}subgraph cluster_845_MyERC20Tokens {
+label = "MyERC20Tokens"
+"845_messageHandler" [label="messageHandler"]
+"845_transfer" [label="transfer"]
+"845_transferFrom" [label="transferFrom"]
+"845_constructor" [label="constructor"]
+"845_validateTransferRestricted" [label="validateTransferRestricted"]
+"845_totalSupply" [label="totalSupply"]
+"845_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"845_burn" [label="burn"]
+"845_approve" [label="approve"]
+"845_allowance" [label="allowance"]
+"845_mint" [label="mint"]
+"845_balanceOf" [label="balanceOf"]
+"845_transfer" -> "845_whenNotPaused"
+"845_constructor" -> "845_addWhitelist"
+"845_burn" -> "845_whenNotPaused"
+"845_burn" -> "845_onlyAdmin"
+"845_validateTransferRestricted" -> "845_isWhitelist"
+"845_transferFrom" -> "845_verify"
+"845_transfer" -> "845_verify"
+"845_mint" -> "845_whenNotPaused"
+"845_mint" -> "845_onlyAdmin"
+"845_transferFrom" -> "845_whenNotPaused"
+}subgraph cluster_301_Pausable {
+label = "Pausable"
+"301_constructor" [label="constructor"]
+"301_unpause" [label="unpause"]
+"301_pause" [label="pause"]
+"301_pause" -> "301_onlyAdmin"
+"301_pause" -> "301_whenNotPaused"
+"301_unpause" -> "301_whenPaused"
+"301_unpause" -> "301_onlyAdmin"
+}subgraph cluster_369_ERC20 {
+label = "ERC20"
+"369_totalSupply" [label="totalSupply"]
+"369_transferFrom" [label="transferFrom"]
+"369_transfer" [label="transfer"]
+"369_balanceOf" [label="balanceOf"]
+"369_allowance" [label="allowance"]
+"369_approve" [label="approve"]
+}subgraph cluster_153_Owned {
+label = "Owned"
+"153_addAdmin" [label="addAdmin"]
+"153_removeAdmin" [label="removeAdmin"]
+"153_isAdmin" [label="isAdmin"]
+"153_constructor" [label="constructor"]
+"153_transferOwnership" [label="transferOwnership"]
+"153_removeAdmin" -> "153_onlyOwner"
+"153_transferOwnership" -> "153_onlyOwner"
+"153_addAdmin" -> "153_onlyOwner"
+"153_isAdmin" -> "153_onlyOwner"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool)" 
+"require(bool,string)" 
+"153_addAdmin" -> "require(bool)"
+"845_mint" -> "require(bool)"
+"153_transferOwnership" -> "require(bool,string)"
+"845_burn" -> "require(bool)"
+"153_removeAdmin" -> "require(bool)"
+"228_removeWhitelisted" -> "require(bool)"
+"845_approve" -> "require(bool)"
+"228_addWhitelist" -> "require(bool)"
+"845_transfer" -> "require(bool)"
+"845_transferFrom" -> "require(bool)"
+}
+}
