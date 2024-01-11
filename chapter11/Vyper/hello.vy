@@ -1,4 +1,4 @@
-# @version ^0.2.15
+# @version ^0.3.10
 greeting: public(String[100]) # defining greeting state variable Fixed-size strings - String[100], just like Solidity
 
 @external

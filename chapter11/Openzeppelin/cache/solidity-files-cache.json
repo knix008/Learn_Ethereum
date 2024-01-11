@@ -9,8 +9,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -40,6 +40,43 @@
         "GameToken"
       ]
     },
+    "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1704848021692,
+      "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 300
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
     "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/node_modules/@openzeppelin/contracts/finance/PaymentSplitter.sol": {
       "lastModificationDate": 1704848021692,
       "contentHash": "4aa680e9153bff0937dba5ff34fd693e",
@@ -48,8 +85,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -79,43 +116,6 @@
         "PaymentSplitter"
       ]
     },
-    "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1704848021692,
-      "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
-      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
-      "solcConfig": {
-        "version": "0.8.9",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../utils/Context.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Ownable"
-      ]
-    },
     "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
       "lastModificationDate": 1704848021628,
       "contentHash": "95602b04f0b53f1139f4668d123ddeb7",
@@ -124,8 +124,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -159,41 +159,6 @@
         "ERC721"
       ]
     },
-    "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/node_modules/@openzeppelin/contracts/utils/Address.sol": {
-      "lastModificationDate": 1704848021580,
-      "contentHash": "211ffd288c1588ba8c10eae668ca3c66",
-      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
-      "solcConfig": {
-        "version": "0.8.9",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.1"
-      ],
-      "artifacts": [
-        "Address"
-      ]
-    },
     "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/node_modules/@openzeppelin/contracts/utils/Context.sol": {
       "lastModificationDate": 1704848021600,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
@@ -202,8 +167,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -229,6 +194,41 @@
         "Context"
       ]
     },
+    "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1704848021580,
+      "contentHash": "211ffd288c1588ba8c10eae668ca3c66",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 300
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
     "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
       "lastModificationDate": 1704848021692,
       "contentHash": "1b5d667d3740d866eca0352758e59827",
@@ -237,8 +237,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -276,8 +276,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -311,8 +311,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -346,8 +346,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -384,8 +384,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -421,8 +421,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -458,8 +458,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -493,8 +493,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -530,8 +530,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -565,8 +565,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -600,8 +600,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -635,8 +635,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -675,8 +675,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -710,8 +710,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -748,8 +748,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -783,8 +783,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -822,8 +822,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -861,8 +861,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -896,8 +896,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -926,15 +926,15 @@
       ]
     },
     "/home/shkwon/Projects/Learn_Ethereum/chapter11/Openzeppelin/contracts/SampleToken.sol": {
-      "lastModificationDate": 1704848287355,
+      "lastModificationDate": 1704854405700,
       "contentHash": "02e9b84203165bda5997646d000f0d0c",
       "sourceName": "contracts/SampleToken.sol",
       "solcConfig": {
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
@@ -973,8 +973,8 @@
         "version": "0.8.9",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 300
           },
           "outputSelection": {
             "*": {
