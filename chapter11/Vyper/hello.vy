@@ -5,7 +5,7 @@ greeting: public(String[100]) # defining greeting state variable Fixed-size stri
 def __init__(): # initialization function, similar to Solidity's constructor function
     self.greeting = "Hello, World."
     
-@external # annotate that function is public and  can be called from outside
+@external # annotate that function is public and can be called from outside
 @view # marked as view, function will not change state
 def printGreeting() -> String[100]:
     return self.greeting
