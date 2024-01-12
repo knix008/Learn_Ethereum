@@ -1,0 +1,2 @@
+#!/bin/bash
+$HOME/Bin/besu-24.1.0/bin/besu --data-path=data --genesis-file=../genesis.json --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --host-allowlist="*" --rpc-http-cors-origins="all"
