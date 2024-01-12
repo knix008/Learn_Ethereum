@@ -1,0 +1,2 @@
+#!/bin/bash
+$HOME/Bin/besu-24.1.0/bin/besu --data-path=data --genesis-file=../genesis.json --bootnodes=enode://f249824ec6c1e4c6f3645d9dcaeb68ff42f6f75689c71fcb86840888d197f58db03f42f4c5aba1e43a792a39f9f3afa8dc63623215f7965402830d1c19d30988@127.0.0.1:30303 --p2p-port=30305
