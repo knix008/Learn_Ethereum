@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "randomhex": "^0.1.5",
+    "web3": "^4.4.0"
+  }
+}
