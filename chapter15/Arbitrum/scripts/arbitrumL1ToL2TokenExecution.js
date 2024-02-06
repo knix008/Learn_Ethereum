@@ -1,5 +1,5 @@
 const { ethers } = require('hardhat');
-const { BigNumber, providers, Wallet } = require('ethers');
+const { BigNumber, providers, Wallet, JsonRpcProvider } = require('ethers');
 const { getL2Network, Erc20Bridger, L1ToL2MessageStatus } = require('@arbitrum/sdk');
 const { arbLog, requireEnvVariables } = require('arb-shared-dependencies');
 
@@ -10,20 +10,18 @@ requireEnvVariables(['DEVNET_PRIVKEY', 'L1RPC', 'L2RPC']);
  * Set up L1 and L2 wallets connected with wallet providers
  */
 let walletPrivateKey = process.env.DEVNET_PRIVKEY;
-const l1Provider = new providers.JsonRpcProvider(process.env.L1RPC);
-const l2Provider = new providers.JsonRpcProvider(process.env.L2RPC);
+const l1Provider = new JsonRpcProvider(process.env.L1RPC);
+const l2Provider = new JsonRpcProvider(process.env.L2RPC);
 const l1Wallet = new Wallet(walletPrivateKey, l1Provider);
 const l2Wallet = new Wallet(walletPrivateKey, l2Provider);
 console.log(`The private key : ${walletPrivateKey}`);
-console.log(`The L1 provider : ${l1Provider}`);
-console.log(`The L2 provider : ${l2Provider}`);
-
-exit(0);
+console.log(`The L1 provider : ${process.env.L1RPC}`);
+console.log(`The L2 provider : ${process.env.L2RPC}`);
 
 /**
  * Set the L1 amount of token to be transferred to L2
  */
-const tokenAmount = BigNumber.from(200);
+const tokenAmount = 200n;
 
 const main = async () => {
   console.log(" -------- initializing ----------");
@@ -38,37 +36,38 @@ const main = async () => {
   console.log('Deploying the MyERC20 Token to L1:');
   const L1MyERC20Token = await (await ethers.getContractFactory('MyERC20Token')).connect(l1Wallet);
   const l1MyERC20Token = await L1MyERC20Token.deploy();
-  await l1MyERC20Token.deployed();
-  console.log(`MyERC20Token is deployed to L1 at ${l1MyERC20Token.address}`);
+  const l1Address = await l1MyERC20Token.getAddress();
+  console.log(`MyERC20Token is deployed to L1 at ${l1Address}`);
 
-  const erc20Address = l1MyERC20Token.address;
+  const erc20Address = l1Address;
   console.log('get L1 Arbitrum Gateway contract address to get  initial MyERC20Token token balance of Bridge');
-  const l1GatewayAddress = await erc20Bridge.getL1GatewayAddress(erc20Address, l1Provider);
+  //const l1GatewayAddress = await erc20Bridge.getL2GatewayAddress(erc20Address, l1Provider);
+  const l1GatewayAddress = await erc20Bridge.Erc20Bridger(erc20Address, l1Provider);
   console.log('l1GatewayAddress:', l1GatewayAddress);
   console.log('Approve ERC20 token in L1 for token transfer to L2, l1 Wallet provider will sign the approveToken transaction before L1 Gateway making the token transfer call');
   const approveTx = await erc20Bridge.approveToken({ l1Signer: l1Wallet, erc20L1Address: erc20Address });
   const approveRec = await approveTx.wait();
   console.log(`Transaction success, MyERC20Token is allowed the Arbitrum Bridge to spend, txnHash: ${approveRec.transactionHash}`);
   console.log('Deposit MyERC20Token to L2 using Arbitrum Erc20Bridger, amount: ', tokenAmount);
-
   const depositTx = await erc20Bridge.deposit({
     amount: tokenAmount,
     erc20L1Address: erc20Address,
     l1Signer: l1Wallet,
     l2Provider: l2Provider,
   });
-  console.log('wait for transactions in both L1 and L2 to be confirmed');
 
+  console.log('wait for transactions in both L1 and L2 to be confirmed');
   const depositRec = await depositTx.wait();
   const l2Result = await depositRec.waitForL2(l2Provider);
+
   console.log('check L1 and L2 transactions is completed');
   if (l2Result.complete) {
     console.log(`L2 message successful: status: ${L1ToL2MessageStatus[l2Result.status]}`);
   } else {
     console.log(`L2 message failed: status ${L1ToL2MessageStatus[l2Result.status]}`);
   }
-  console.log('Get the L1 Bridge token balance');
 
+  console.log('Get the L1 Bridge token balance');
   const finalL1BridgeTokenBalance = await l1MyERC20Token.balanceOf(l1GatewayAddress);
   console.log('Transfered token amount is ', tokenAmount);
   console.log('Current L1 Bridge token balance is ', finalL1BridgeTokenBalance);
@@ -77,8 +76,8 @@ const main = async () => {
     erc20Address,
     l1Provider
   );
-  const l2Token = erc20Bridge.getL2TokenContract(l2Provider, l2TokenAddress);
 
+  const l2Token = erc20Bridge.getL2TokenContract(l2Provider, l2TokenAddress);
   console.log('Get the L2 token');
   const l21TokenBalance = (await l2Token.functions.balanceOf(l2Wallet.address))[0];
   console.log('L2 token amount: ', l21TokenBalance);
