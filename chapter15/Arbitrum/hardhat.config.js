@@ -1,10 +1,4 @@
-require("@nomicfoundation/hardhat-toolbox");
+require('@nomiclabs/hardhat-ethers')
 const { hardhatConfig } = require('arb-shared-dependencies')
 
-//module.exports = hardhatConfig;
-
-/** @type import('hardhat/config').HardhatUserConfig */
-module.exports = {
-  solidity: "0.8.20",
-  hardhatConfig
-};
+module.exports = hardhatConfig
