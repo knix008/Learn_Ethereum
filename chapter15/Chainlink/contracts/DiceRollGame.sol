@@ -4,7 +4,10 @@ pragma solidity ^0.8.7;
 import "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol";
 import "@chainlink/contracts/src/v0.8/vrf/VRFV2WrapperConsumerBase.sol";
 
-contract DiceRollGame is VRFV2WrapperConsumerBase, ConfirmedOwner {
+contract DiceRollGame is
+    VRFV2WrapperConsumerBase,
+    ConfirmedOwner
+{
     event RequestSent(uint256 requestId, uint32 numWords);
     event RequestFulfilled(
         uint256 requestId,
@@ -29,14 +32,14 @@ contract DiceRollGame is VRFV2WrapperConsumerBase, ConfirmedOwner {
     // this limit based on the network that you select, the size of the request,
     // and the processing of the callback request in the fulfillRandomWords()
     // function.
-    uint32 callbackGasLimit = 150000; // >= Wrapper Gas Overhead - 40,000, Coordinator Gas Overhead 90,000.
+    uint32 callbackGasLimit = 100000;
 
     // The default is 3, but you can set this higher.
     uint16 requestConfirmations = 3;
 
-    // For this example, retrieve 1 random values in one request.
+    // For this example, retrieve 2 random values in one request.
     // Cannot exceed VRFV2Wrapper.getConfig().maxNumWords.
-    uint32 numWords = 1;
+    uint32 numWords = 2;
 
     // Address LINK - hardcoded for Sepolia
     address linkAddress = 0x779877A7B0D9E8603169DdbD7836e478b4624789;
@@ -49,10 +52,11 @@ contract DiceRollGame is VRFV2WrapperConsumerBase, ConfirmedOwner {
         VRFV2WrapperConsumerBase(linkAddress, wrapperAddress)
     {}
 
-    /**
-     * getRandomNumber function check contract has enough LINK balance to execute VRFCoordinator request for randomness
-     */
-    function getRandomNumber() external onlyOwner returns (uint256 requestId) {
+    function requestRandomWords()
+        external
+        onlyOwner
+        returns (uint256 requestId)
+    {
         requestId = requestRandomness(
             callbackGasLimit,
             requestConfirmations,
