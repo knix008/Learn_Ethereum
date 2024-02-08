@@ -100,6 +100,15 @@ contract DiceRollGame is
     }
 
     /**
+     * rollDice function generate dice number based on returned chainlink VRF value by mod 6
+     */
+    function rollDice() public view returns (uint256) {
+        require(s_requests[lastRequestId].randomWords[0] > 0, "Random number has not yet been obtained");
+        uint256 result = (s_requests[lastRequestId].randomWords[0] % 6) + 1;
+        return result;
+    }
+
+    /**
      * Allow withdraw of Link tokens from the contract
      */
     function withdrawLink() public onlyOwner {
@@ -108,15 +117,5 @@ contract DiceRollGame is
             link.transfer(msg.sender, link.balanceOf(address(this))),
             "Unable to transfer"
         );
-    }
-
-    /**
-     * rollDice function generate dice number based on returned chainlink VRF value by mod 6
-     */
-    function rollDice() public view returns (uint256) {
-        uint256[] memory randomWords = s_requests[lastRequestId].randomWords;
-        require(randomWords[0] > 0, "Random number has not yet been obtained");
-        uint256 result = (randomWords[0] % 6) + 1;
-        return result;
     }
 }

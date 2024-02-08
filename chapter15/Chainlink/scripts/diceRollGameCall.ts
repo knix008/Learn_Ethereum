@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 const diceRollGameContract = require("../artifacts/contracts/DiceRollGame.sol/DiceRollGame.json");
 //Make sure replace the below address with yours. 
-const diceRollGameContractAddress = "0x82bfC5D009ad2EA5D38688Fb3BBd32237bf4f211";
+const diceRollGameContractAddress = "0xe443F687d4DC686eE9C7fb6F25ADd14Bb39b0bfe";
 /**
  * run below command to call rollDice function
  * npx hardhat run scripts/diceRollGameCall.ts --network goerli
@@ -15,12 +15,9 @@ async function main() {
     const requestID = await diceRollGame.requestRandomWords();
     console.log("The request ID : ", requestID.value);
 
-    // Wait for 180 second for random number to change.
-    console.log("Sleeping... 180 sec");
-    await sleep(180000);
-
-    console.log(await diceRollGame.getRequestStatus(requestID.value));
-    return;
+    // Wait for 60 second for random number to change.
+    console.log("Sleeping... 60 sec");
+    await sleep(60000);
 
     console.log("Calliong rollDice() function...");
     const diceNum = await diceRollGame.rollDice();
