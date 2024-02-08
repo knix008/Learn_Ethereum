@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 const diceRollGameContract = require("../artifacts/contracts/DiceRollGame.sol/DiceRollGame.json");
 //Make sure replace the below address with yours. 
-const diceRollGameContractAddress = "0xe443F687d4DC686eE9C7fb6F25ADd14Bb39b0bfe";
+const diceRollGameContractAddress = "0xbAF5d2AeAc82440c43C18111FaE91d307133f874";
 /**
  * run below command to call rollDice function
  * npx hardhat run scripts/diceRollGameCall.ts --network goerli
