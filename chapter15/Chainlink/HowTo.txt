@@ -1,0 +1,8 @@
+1. To use this example file, you need to copy & paste the smart contract into Remix IDE. Then compile and deploy it. To do this, you need to connect to your wallet and set the network to "Sepolia".
+2. Before you run this program you need to get some test ETH from Sepolia and LINK from Chainlink.
+3. Send "2" LINK to the deployed contract. 
+4. Run "RequestRandomWords()" function with 400,000 GAS LIMIT in Remix IDE and MetaMask wallet advanced setting for gas in Transaction confirmation popup window.
+5. Run "getLastRequestID()" function to get the request ID. 
+6. Use the request ID to get the status of the reqeust, "getRequestStatus()" function.
+7. Run "withdrawLink()" function to clean up.
+
