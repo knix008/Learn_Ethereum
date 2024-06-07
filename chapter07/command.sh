@@ -1,0 +1,19 @@
+geth --datadir=$pwd \
+--syncmode "full" \
+--port 30310 \
+--networkid 1515 \
+--miner.gasprice 1 \
+--http \
+--http.addr 0.0.0.0 \
+--http.corsdomain ‘*’ \
+--http.port 8545 \
+--http.vhosts ‘*’ \
+--http.api="admin,eth,net,txpool,personal,web3,debug,miner" \
+--miner.etherbase 0x06c3e310e2dfb3ed8d8b25145b3d094c2ad735523 \
+--verbosity 3 \
+--ws \
+--ws.port 8546 \
+--allow-insecure-unlock \
+--unlock 0x06c3e310e2dfb3ed8d8b25145b3d094c2ad735523 \
+--password password.txt \
+--nodiscover
